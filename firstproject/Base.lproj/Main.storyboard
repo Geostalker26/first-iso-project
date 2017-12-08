@@ -86,7 +86,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="capital" destination="Kl7-zD-CYR" id="Tbe-9a-cEf"/>
+                        <outlet property="cap" destination="Kl7-zD-CYR" id="Tbe-9a-cEf"/>
                         <outlet property="changecolor" destination="gI1-Pw-qab" id="pMX-59-Qs0"/>
                         <outlet property="hello" destination="LDd-jS-JxA" id="4Il-1e-CEi"/>
                         <outlet property="name" destination="YiF-Y8-mGU" id="PZ7-m2-16O"/>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,90 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="firstproject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8Z-vV-j56">
+                                <rect key="frame" x="168" y="153" width="39" height="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6fc-8o-zdl"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kl7-zD-CYR">
+                                <rect key="frame" x="163" y="328.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="capital:" destination="BYZ-38-t0r" eventType="valueChanged" id="Wsm-AK-Q91"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YiF-Y8-mGU">
+                                <rect key="frame" x="91" y="46" width="193" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDd-jS-JxA">
+                                <rect key="frame" x="104" y="250" width="169" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YELL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYq-uQ-fiA">
+                                <rect key="frame" x="170" y="290.5" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-Pw-qab">
+                                <rect key="frame" x="77" y="91" width="221" height="29"/>
+                                <segments>
+                                    <segment title="Orange"/>
+                                    <segment title="Red"/>
+                                    <segment title="Blue"/>
+                                    <segment title="Green"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changecolor:" destination="BYZ-38-t0r" eventType="valueChanged" id="zIt-Jb-Qqj"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S8Z-vV-j56" firstAttribute="top" secondItem="gI1-Pw-qab" secondAttribute="bottom" constant="34" id="4i0-im-ZNN"/>
+                            <constraint firstItem="YiF-Y8-mGU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="6A6-n3-GZ0"/>
+                            <constraint firstItem="Kl7-zD-CYR" firstAttribute="centerX" secondItem="S8Z-vV-j56" secondAttribute="centerX" id="7i9-We-5SU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gI1-Pw-qab" secondAttribute="trailing" constant="77" id="9Ei-fn-GjJ"/>
+                            <constraint firstItem="YiF-Y8-mGU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9sA-O9-Rri"/>
+                            <constraint firstItem="LDd-jS-JxA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="104" id="J4J-D1-XYA"/>
+                            <constraint firstItem="gI1-Pw-qab" firstAttribute="top" secondItem="YiF-Y8-mGU" secondAttribute="bottom" constant="15" id="KJa-fj-EKG"/>
+                            <constraint firstItem="LDd-jS-JxA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="Wqb-gV-Z5V"/>
+                            <constraint firstItem="LDd-jS-JxA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="bCx-YK-CJJ"/>
+                            <constraint firstItem="gI1-Pw-qab" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="elU-8x-nEw"/>
+                            <constraint firstItem="Kl7-zD-CYR" firstAttribute="top" secondItem="bYq-uQ-fiA" secondAttribute="bottom" constant="17" id="gJk-cW-WY2"/>
+                            <constraint firstItem="S8Z-vV-j56" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="168" id="kOn-cb-qbh"/>
+                            <constraint firstItem="YiF-Y8-mGU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lzJ-Sp-EeF"/>
+                            <constraint firstItem="bYq-uQ-fiA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="170" id="n69-sH-qai"/>
+                            <constraint firstItem="gI1-Pw-qab" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="nOc-4K-aAP"/>
+                            <constraint firstItem="bYq-uQ-fiA" firstAttribute="top" secondItem="LDd-jS-JxA" secondAttribute="bottom" constant="20" id="rq2-Tr-5Lc"/>
+                            <constraint firstItem="YiF-Y8-mGU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="sas-Hb-1OM"/>
+                            <constraint firstItem="LDd-jS-JxA" firstAttribute="top" secondItem="S8Z-vV-j56" secondAttribute="bottom" constant="67" id="tHe-CK-3P5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="capital" destination="Kl7-zD-CYR" id="Tbe-9a-cEf"/>
+                        <outlet property="changecolor" destination="gI1-Pw-qab" id="pMX-59-Qs0"/>
+                        <outlet property="hello" destination="LDd-jS-JxA" id="4Il-1e-CEi"/>
+                        <outlet property="name" destination="YiF-Y8-mGU" id="PZ7-m2-16O"/>
+                        <outlet property="reset" destination="S8Z-vV-j56" id="8oq-g1-FRG"/>
+                        <outlet property="yell" destination="bYq-uQ-fiA" id="qxs-0E-DDA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-98.400000000000006" y="118.29085457271366"/>
         </scene>
     </scenes>
 </document>

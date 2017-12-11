@@ -8,19 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController {
 
-    @IBOutlet var reset: UIButton!
-    @IBOutlet var yell: UILabel!
-    @IBOutlet var cap: UISwitch!
-    @IBOutlet var changecolor: UISegmentedControl!
-    @IBOutlet var hello: UILabel!
-    @IBOutlet var name: UITextField!
+    @IBOutlet private var sayhello: UIButton!
+    @IBOutlet private var reset: UIButton!
+    @IBOutlet private var yell: UILabel!
+    @IBOutlet private var cap: UISwitch!
+    @IBOutlet private var changecolor: UISegmentedControl!
+    @IBOutlet private var hello: UILabel!
+    @IBOutlet private var name: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        name.delegate = self
+        hello.text = ""
+
         // Do any additional setup after loading the view, typically from a nib.
-        cap.addTarget(self, action: #selector(capital), for: UIControlEvents.valueChanged)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,55 +30,57 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func reset(_ sender: Any) {
+        hello.text = ""
+        name.text = ""
+    }
+    @IBAction func hi(_ sender: Any) {
+        hello.text = "Hello " + name.text!
+        hello.textColor = UIColor.orange
+
+    }
     func nokeyboard(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     func outputtoinput(_ textField: UITextField){
         hello.text = "Hello " + textField.text!
-        capital(switchState: cap)
         name.text = nil
     }
-    @IBAction func Enter(_ sender: UIButton){
-        hello.text = ""
-        hello.textColor = UIColor.orange
-        changecolor.selectedSegmentIndex = 0
-        changecolor.tintColor = UIColor.orange
-        reset.backgroundColor = UIColor.orange
-        cap.onTintColor = UIColor.orange
-        cap.setOn(false, animated: true)
-        yell.textColor = UIColor.red
-    }
     
-    @IBAction func capital(switchState: UISwitch) {
+    @IBAction func capital(_ sender: Any) {
         if cap.isOn {
-         hello.text = hello.text?.uppercased()
+            hello.text = "Hello " + name.text! + "!"
+            hello.text = hello.text?.uppercased()
         }
         else {
+            hello.text = "Hello " + name.text!
             hello.text = hello.text?.capitalized
         }
     }
+    
     @IBAction func changecolor(_ sender: Any) {
         switch changecolor.selectedSegmentIndex {
-            case 0:hello.textColor = UIColor.orange
-                   changecolor.tintColor = UIColor.orange
-                   reset.backgroundColor = UIColor.orange
+            case 0:changecolor.tintColor = UIColor.orange
                    cap.onTintColor = UIColor.orange
+                   cap.tintColor = UIColor.orange
+                   hello.textColor = UIColor.orange
             
-            case 1:hello.textColor = UIColor.red
-                   changecolor.tintColor = UIColor.red
-                   reset.backgroundColor = UIColor.red
+            case 1:changecolor.tintColor = UIColor.red
                    cap.onTintColor = UIColor.red
+                   cap.tintColor = UIColor.red
+                   hello.textColor = UIColor.red
             
-            case 2:hello.textColor = UIColor.blue
-                   changecolor.tintColor = UIColor.blue
-                   reset.backgroundColor = UIColor.blue
+            case 2:changecolor.tintColor = UIColor.blue
                    cap.onTintColor = UIColor.blue
+                   cap.tintColor = UIColor.blue
+                   hello.textColor = UIColor.blue
             
-            case 3:hello.textColor = UIColor.green
-                   changecolor.tintColor = UIColor.green
-                   reset.backgroundColor = UIColor.green
-                  cap.onTintColor = UIColor.green
+            case 3:changecolor.tintColor = UIColor.green
+                   cap.onTintColor = UIColor.green
+                   cap.tintColor = UIColor.green
+                   hello.textColor = UIColor.green
+            
             default: break
         }
     }
